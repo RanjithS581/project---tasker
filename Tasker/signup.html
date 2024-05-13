@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<style>
+    .form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border: 1px solid black;
+    width: 350px;
+    margin: auto;
+    padding: 15px;
+    margin-top: 10%;
+}
+.p2{
+    display: flex;
+    flex-direction: column;
+}
+.submit input{
+    border: 1px solid black
+}
+.submit{
+    display: flex;
+    flex-direction: column;
+}
+.p2 div{
+    display: flex;
+    flex-direction: column;
+}
+.submit button{
+    background-color: rgb(111, 63, 234);
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+}
+.p2 input{
+    height: 30px;
+}
+.parent{
+    display: flex;
+
+}
+.todologo{
+    width: 500px;
+    height: 500px;
+    border-radius: 90px;
+}
+.logo{
+    background-color: rgba(172, 167, 167, 0.505);
+    /* border-right: 1px solid black; */
+    width: 50%;
+    height: 100vh;
+    text-align: center;
+    align-content: center;
+
+}
+.checkbox{
+    margin-top: 10px;
+}
+.rem_text{
+position: absolute;
+
+}
+body{
+    margin: 0px;
+    padding: 0;
+    width: auto;
+    /* height: 95vh; */
+}
+.submit p{
+    margin-top: 0px;
+}
+.rem_me{
+    border-radius: 10px;
+}
+.textbox{
+    border-radius: 10px;
+}
+span{
+    color:  rgb(111, 63, 234);
+}
+</style>
+<body>
+    
+<div class="parent"> 
+
+    <div class="logo">
+        <img src="./assets/todologo.jpg" class="todologo">
+    </div>
+
+
+    <div class="form" id="formValidation">
+
+        <div class="p1">
+            <label> <h1> Welcome to Tasker </h1> </label>
+            <p> Please SignUp to open the Door </p>
+        </div>
+
+        <div class="p2">
+            
+            <div>
+                <label> <h5> Email </h5> </label>
+                <input type="text4" id="userName" class="textbox" placeholder="Insert your email">
+                
+            </div>
+
+            <div>
+            <label> <h5> Password </h5> </label>
+                <input type="password" id="passWord" class="textbox"  placeholder="Insert your password">
+            </div>
+
+            <div class="checkbox">
+                <form>
+                <input type="checkbox" id="rememberme" class="rem_me">
+                <label for="rememberme" class="rem_text" > Remember me </label>
+            </form>
+            </div>
+
+            <div class="submit">
+                <p id="text"> </p>
+                <button onclick="signup()" type="submit" > Sign Up </button>
+            </div>
+
+            <div>
+                <p>Do you have an Account? <span> Sign In </span></p>
+            </div>
+
+        </div>
+
+    </div> 
+
+</div>
+<script>
+
+function signup(){
+var inputText = document.getElementById('userName').value;
+var inputText1 = document.getElementById('passWord').value;
+var message = document.getElementById('text');
+var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+
+if(inputText.length == 0 || inputText1.length == 0)  {
+    message.textContent = "Both field contains atleast 5 letters";
+    message.style.color = "red";
+    return;
+}
+if(!emailRegex.test(inputText)){
+    message.textContent = "please enter valid email";
+    message.style.color = "red";
+    return;
+}
+if(inputText1.length <6 || inputText1.length > 12){
+    message.textContent = "Password length incorrect";
+    message.style.color = "red";
+    return;
+}
+var users = JSON.parse(localStorage.getItem('users')) || [];
+
+var userExists = users.some(function(user){
+    return user.username === inputText;
+});
+
+if(userExists){
+    message.textContent = "User already exists.";
+    message.style.color = "red";
+}
+
+else{
+    users.push({ username: inputText, password: inputText1 });
+
+    localStorage.setItem('users', JSON.stringify(users));
+
+    message.textContent = "User registered successfully.";
+    message.style.color = "green";
+
+    setTimeout(function() {
+        window.location.href = 'signin.html';
+    }, 2000);
+    }
+}
+
+</script>  
+</body>
+</html>

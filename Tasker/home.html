@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+
+    <div class="part1">
+    <div class="shortcut">
+
+        <div>
+            <img src="./assets/todologo.jpg" class="todologo">
+        </div>
+
+        <div class="icons">
+
+        <div class="task" id="task">
+                <span class="material-symbols-outlined"> task </span> Tasks
+        </div>
+
+        <div class="category" id="category">
+            <div class="categories " id="categories">  
+                <span class="material-symbols-outlined"> folder_special </span>
+                <p> Categories </p> 
+                <span class="material-symbols-outlined"> expand_more </span>
+                </div>
+
+
+        <ul  id="catlist" class="listval">
+            <li class="works"> 🟦Home </li>
+            <li class="works"> 🟥School</li>
+            <li class="works"> 🟨Shopping list</li>
+            <li class="works"> 🟩none</li>
+            <li class="works"> <img src="./assets/add icon.png" class="color"> Add new</li>
+        </ul>
+
+    </div>
+
+        <div class="settings" id="setting">
+                <span class="material-symbols-outlined"> settings </span>
+                 Settings 
+        </div>
+    </div>2
+
+    <div class="logout">
+        <span class="material-symbols-outlined"> logout </span> Logout 
+    </div>
+
+    </div>
+
+    <!-- ------------------------------------------------------------------- -->
+
+    <div class="main">
+
+        <div>
+            <h4> All your tasks </h4>
+        </div>
+
+        <div class="types">
+
+            <div>
+
+                <h3> Tasks </h3>
+
+            </div>
+
+            <div class="func">
+
+                <button id="all"> All </button>
+                <button id="done"> Done </button>
+                <button id="notdone"> Not Done </button>
+                 <img src="./assets/filter.png" class="filter"> </button>
+
+            </div>
+        
+        </div>
+
+        <div class="Tasks">
+
+            <div class="task1">
+                <div>
+                    <input type="checkbox" value="Type of task" class="radio">
+
+                    <div class="typo">
+                            <p id="taskname"> Type of task </p>                   
+                            <p class="typeoftask" id="typeoftask">None</p>
+                    </div>
+
+                </div>
+            
+
+            <div class="edicon">
+                <img src="./assets/edit icon.png" class="editicon">
+                <img src="./assets/delete icon.png" class="delicon">
+            </div>
+
+        </div>
+
+        <div id="tasksContainer" class="newtaskblock"></div>
+            
+        </div>
+
+        <div class="add_task" id="addtask">
+            <img src="./assets/addbox.png" class="addtask">
+            <p> Add a Task </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <div class="popup">
+
+        <div class="a1">
+        <p> Insert Name </p>
+        </div>
+
+        <div>
+            <input type="text" placeholder="Taks name" class="inputname">
+        </div>
+
+        <div class="a2">
+            <p> Select the Categorie </p>
+        </div>
+
+        <div class="popupselect">
+            <select>
+                <option>🟩 None</option>
+                <option>🟦 Home</option>
+                <option>🟥 School</option>
+                <option>🟨 Shopping List</option>
+                <!-- <option> Add new</option> -->
+            </select>
+        </div>
+
+        <div class="popupbuttons"> 
+            <button id="cancel" class="cancel"> Cancel </button>
+            <button id="add" class="add"> Add </button>
+        </div>
+    </div>
+
+
+
+    <script src="./home.js"></script>
+</body>
+</html>

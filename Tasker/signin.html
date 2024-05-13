@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<style>
+    .form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border: 1px solid black;
+    width: 350px;
+    margin: auto;
+    padding: 15px;
+    margin-top: 10%;
+}
+.p2{
+    display: flex;
+    flex-direction: column;
+}
+.submit input{
+    border: 1px solid black
+}
+.submit{
+    display: flex;
+    flex-direction: column;
+}
+.p2 div{
+    display: flex;
+    flex-direction: column;
+}
+.submit button{
+    background-color: rgb(111, 63, 234);
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+}
+.p2 input{
+    height: 30px;
+}
+.parent{
+    display: flex;
+
+}
+.todologo{
+    width: 500px;
+    height: 500px;
+    border-radius: 90px;
+}
+.logo{
+    background-color: rgba(172, 167, 167, 0.505);
+    /* border-right: 1px solid black; */
+    width: 50%;
+    height: 100vh;
+    text-align: center;
+    align-content: center;
+
+}
+.checkbox{
+    margin-top: 10px;
+}
+.rem_text{
+position: absolute;
+
+}
+body{
+    margin: 0px;
+    padding: 0;
+    width: auto;
+    /* height: 95vh; */
+}
+.submit p{
+    margin-top: 0px;
+}
+.rem_me{
+    border-radius: 10px;
+}
+.textbox{
+    border-radius: 10px;
+}
+span{
+    color:  rgb(111, 63, 234);
+    cursor: pointer;
+}
+</style>
+<body>
+    
+<div class="parent"> 
+
+    <div class="logo">
+        <img src="./assets/todologo.jpg" class="todologo">
+    </div>
+
+
+    <div class="form" id="formValidation">
+
+        <div class="p1">
+            <label> <h1> Welcome to Tasker </h1> </label>
+            <p> Please SignUp to open the Door </p>
+        </div>
+
+        <div class="p2">
+            
+            <div>
+                <label> <h5> Email </h5> </label>
+                <input type="text4" id="userName" class="textbox" placeholder="Insert your email">
+                
+            </div>
+
+            <div>
+            <label> <h5> Password </h5> </label>
+                <input type="password" id="passWord" class="textbox"  placeholder="Insert your password">
+            </div>
+
+            <div class="checkbox">
+                <form>
+                <input type="checkbox" id="rememberme" class="rem_me">
+                <label for="rememberme" class="rem_text" > Remember me </label>
+            </form>
+            </div>
+
+            <div class="submit">
+                <p id="text"> </p>
+                <button onclick="signin()" type="Sign In" > Sign In </button>
+            </div>
+
+            <div>
+                <p>Don't have an Account? <span> Sign up </span></p>
+            </div>
+
+        </div>
+
+    </div> 
+
+</div>
+<script>
+
+function signin() {
+    var userName = document.getElementById('userName').value;
+    var password = document.getElementById('passWord').value;
+    var message = document.getElementById('text');
+
+    if (!userName || !password) {
+        message.textContent = "Please fill in both fields.";
+        message.style.color = "red";
+        return;
+    }
+
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    var userFound = users.find(user => user.username === userName && user.password === password);
+
+    if (userFound) {
+        message.textContent = "Login successful!";
+        message.style.color = "green";
+
+        setTimeout(function() {
+            window.location.href = 'home.html';
+        }, 1000);  
+    } else {
+        message.textContent = "Invalid email or password.";
+        message.style.color = "red";
+    }
+}
+
+
+</script>  
+</body>
+</html>
