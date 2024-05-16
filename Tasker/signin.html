@@ -128,7 +128,7 @@ span{
             </div>
 
             <div>
-                <p>Don't have an Account? <span> Sign up </span></p>
+                <p>Don't have an Account? <span onclick="t2()"> Sign up </span></p>
             </div>
 
         </div>
@@ -154,19 +154,24 @@ function signin() {
     var userFound = users.find(user => user.username === userName && user.password === password);
 
     if (userFound) {
-        message.textContent = "Login successful!";
+        // message.textContent = "Login successful!";
         message.style.color = "green";
+
+        // localStorage.setItem('currentUser', email);
 
         setTimeout(function() {
             window.location.href = 'home.html';
-        }, 1000);  
+        }, 300);  
     } else {
         message.textContent = "Invalid email or password.";
         message.style.color = "red";
+        alert('Invalid email or password');
     }
 }
 
-
+function t2(){
+    window.location.href = 'signup.html'
+}
 </script>  
 </body>
 </html>
