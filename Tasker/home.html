@@ -31,11 +31,11 @@
 
 
         <ul  id="catlist" class="listval">
-            <li class="works"> 🟦Home </li>
-            <li class="works"> 🟥School</li>
-            <li class="works"> 🟨Shopping list</li>
-            <li class="works"> 🟩none</li>
-            <li class="works"> <img src="./assets/add icon.png" class="color"> Add new</li>
+            <li class="worksAll" > ⏹️All </li>
+            <li class="worksH"> 🟦Home </li>
+            <li class="worksS"> 🟥School</li>
+            <li class="worksSH"> 🟨Shopping list</li>
+            <li class="worksnew"> <img src="./assets/add icon.png" class="color"> Add new</li>
         </ul>
 
     </div>
@@ -44,7 +44,7 @@
                 <span class="material-symbols-outlined"> settings </span>
                  Settings 
         </div>
-    </div>2
+    </div>
 
     <div class="logout">
         <span class="material-symbols-outlined"> logout </span> Logout 
@@ -94,8 +94,8 @@
             
 
             <div class="edicon">
-                <img src="./assets/edit icon.png" class="editicon">
-                <img src="./assets/delete icon.png" class="delicon">
+                <button onclick="editTask()"> <img src="./assets/edit icon.png" class="editicon" ></button>
+                <button onclick="deleteTask()"> <img src="./assets/delete icon.png" class="delicon" ></button>
             </div>
 
         </div>
@@ -129,7 +129,7 @@
         </div>
 
         <div class="popupselect">
-            <select>
+            <select id="taskCategory">
                 <option>🟩 None</option>
                 <option>🟦 Home</option>
                 <option>🟥 School</option>
