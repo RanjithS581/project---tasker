@@ -83,6 +83,7 @@ body{
 }
 span{
     color:  rgb(111, 63, 234);
+    cursor: pointer;
 }
 </style>
 <body>
@@ -127,7 +128,7 @@ span{
             </div>
 
             <div>
-                <p>Do you have an Account? <span> Sign In </span></p>
+                <p>Do you have an Account? <span onclick="t1()"> Sign In </span></p>
             </div>
 
         </div>
@@ -172,7 +173,7 @@ if(userExists){
 
 else{
     users.push({ username: inputText, password: inputText1 });
-
+    alert('Registration successful')
     localStorage.setItem('users', JSON.stringify(users));
 
     message.textContent = "User registered successfully.";
@@ -180,8 +181,12 @@ else{
 
     setTimeout(function() {
         window.location.href = 'signin.html';
-    }, 2000);
+    }, 500);
     }
+}
+
+function t1(){
+    window.location.href = 'signin.html'
 }
 
 </script>  
